@@ -15,6 +15,7 @@ class Album(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     release_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    text = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self) -> str:
         return self.title
