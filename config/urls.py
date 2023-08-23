@@ -20,5 +20,6 @@ from django_music import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.album_list, name="album_list" )
+    path('', views.album_list, name="album_list"),
+    path('albums/<int:pk>/', views.album_detail, name='album_detail'),
 ]
