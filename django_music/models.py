@@ -12,7 +12,7 @@ class Artist(models.Model):
 
 class Album(models.Model):
     title = models.CharField(max_length=150)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name="albums")
     release_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     text = models.CharField(max_length=100, blank=True, null=True)
@@ -22,7 +22,7 @@ class Album(models.Model):
 
 
 class Song(models.Model):
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name="songs")
     title = models.CharField(max_length=150)
     duration = models.DurationField(blank=True, null=True)
 

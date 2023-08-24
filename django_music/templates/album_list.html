@@ -12,6 +12,7 @@
         <li><a href="{% url 'album_detail' album.pk %}">{{ album.title }}</a> by {{ album.artist }}</li>
         {% endfor %}
     </ul>
+<a href="{% url 'album_new' %}">Make new album</a>
 
 </body>
 </html>
