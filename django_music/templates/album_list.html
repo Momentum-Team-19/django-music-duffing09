@@ -1,15 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/django_music.css' %}">
+    <script src="{% static 'css/test.js' %}"></script>
     <title>Document</title>
 </head>
 <body>
     <h1>Album List</h1>
-    <ul>
+    <ul class="album-list">
         {% for album in albums %}
-        <li><a href="{% url 'album_detail' album.pk %}">{{ album.title }}</a> by {{ album.artist }}</li>
+        <li class="album-box">
+            <div class="album-info">
+                <a href="{% url 'album_detail' album.pk %}">{{ album.title }}</a> by {{ album.artist }}
+            </div>
+        </li>
         {% endfor %}
     </ul>
 <a href="{% url 'album_new' %}">Make new album</a>
