@@ -14,12 +14,13 @@
         {% for album in albums %}
         <li class="album-box">
             <div class="album-info">
-                <a href="{% url 'album_detail' album.pk %}">{{ album.title }}</a> by {{ album.artist }}
+                <a style="text-decoration: none" href="{% url 'album_detail' album.pk %}">{{ album.title }}</a>
+                by {{ album.artist }}
             </div>
         </li>
         {% endfor %}
     </ul>
-<a href="{% url 'album_new' %}">Make new album</a>
+<a style="text-decoration: none" href="{% url 'album_new' %}" class="button">Create Album</a>
 
 </body>
 </html>

@@ -1,51 +1,100 @@
+/* Reset default margin and padding */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
 
-ul {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
-    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
-    display: column;
+/* Set a background color and center content */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5%;
-    padding: 2%;
-    margin: 8px;
-    text-decoration: none;
-    position: relative;
-    cursor: default;
+    min-height: 100vh;
+    flex-direction: column; /* Center content vertically and horizontally */
 }
 
-.album_box {
-    box-shadow: 1px 1px 3px #00000020, -1px -1px 3px var(--clr-light);
-    background: linear-gradient(140deg, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.1));
-    display: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5%;
-    padding: 2%;
-    margin: 8px;
-    text-decoration: none;
-    position: relative;
-    cursor: default;
+/* Container for content */
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    padding: 20px;
+    text-align: center;
 }
 
-h1 {
-    color: green;
-}
-
+/* Style the album list */
 .album-list {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 /* Style each album box */
 .album-box {
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid white;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
     border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.album-box:hover {
+    background-color: #f0f0f0;
 }
 
 /* Style the album information within each box */
 .album-info {
     font-size: 16px;
+}
+
+/* Style the "Create Album" button */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.album-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.album-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.album-form .save {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+}
+
+.album-form .save:hover {
+    background-color: #0056b3
 }
