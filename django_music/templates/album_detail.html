@@ -1,15 +1,3 @@
-<!-- {% block content %}
-<article class="album">
-    {% if album.published_date %}
-    <time class="date">
-        {{ album.published_date }}
-    </time>
-    {% endif %}
-    <h2>{{ album.title }}</h2>
-    <p>{{ album.text|linebreaksbr }}</p>
-</article>
-{% endblock %} -->
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +8,14 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- container for content with the css class container -->
     <div class="container">
+        <!-- displays title of album using template variable -->
         <h1>{{ album.title }}</h1>
         <h2>by: {{ album.artist }}</h2>
+        <!-- initiates a loop that iterates through all songs related to the album -->
         {% for song in album.songs.all %}
+        <!-- displays title of each song using template variable -->
         <h3>{{ song }}</h3>
         {% endfor %}
     </div>
