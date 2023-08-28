@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 # retrieves all album objects from database using line 9 and passes them to 'album_list.html' using render function
 @login_required
 def album_list(request):
-    albums = Album.objects.all()
+    albums = Album.objects.filter(user=request.user)
     return render(request, 'album_list.html', {'albums': albums})
 
 
@@ -23,7 +23,9 @@ def album_new(request):
     if request.method == "POST":
         form = AlbumForm(request.POST)
         if form.is_valid():
-            album = form.save()
+            album = form.save(commit=False)
+            album.user = request.user
+            album.save()
             return redirect('album_list')
     else:
         form = AlbumForm()

@@ -21,6 +21,7 @@ class Album(models.Model):
     release_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     text = models.CharField(max_length=100, blank=True, null=True)
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="albums")
 # defines album represented as a string. returns the 'title' attribute of the album
 
     def __str__(self) -> str:
