@@ -52,3 +52,16 @@ def album_remove(request, pk):
     return redirect('album_list')
 
 # these functions define the various views required for managing albums in a web abblication. they interact with the database through django models, validate form data, and render templates to display album information
+
+
+def favorite_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    album.is_favorite = True
+    album.save()
+    return redirect('album_list')
+
+def unfavorite_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    album.is_favorite = False
+    album.save()
+    return redirect('album_list')

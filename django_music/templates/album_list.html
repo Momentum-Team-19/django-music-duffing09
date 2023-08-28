@@ -16,6 +16,11 @@
             <div class="album-info">
                 <a style="text-decoration: none" href="{% url 'album_detail' album.pk %}">{{ album.title }}</a>
                 by {{ album.artist }}
+                {% if album.is_favorite %}
+                <a style="text-decoration: none; color: red;" href="{% url 'unfavorite_album' album.pk %}" class="favorite-link">Unfavorite</a>
+                {% else %}
+                <a style="text-decoration: none; color: green;" href="{% url 'favorite_album' album.pk %}" class="favorite-link">Favorite</a>
+                {% endif %}
             </div>
         </li>
         {% endfor %}

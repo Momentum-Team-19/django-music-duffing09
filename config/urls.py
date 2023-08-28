@@ -32,6 +32,8 @@ urlpatterns = [
     path('album/<int:pk>/edit/', views.album_edit, name='album_edit'),
     path('album/<pk>/remove/', views.album_remove, name='album_remove'),
     path('accounts/', include('registration.backends.simple.urls')),
+    path('album/<int:pk>/favorite/', views.favorite_album, name='favorite_album'),
+    path('album/<int:pk>/unfavorite/', views.unfavorite_album, name='unfavorite_album')
 ]
 
 # checks whether application is in debug mode. if it is it adds url pattern for servnc static files.
