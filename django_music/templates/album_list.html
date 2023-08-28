@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/django_music.css' %}">
+    <script src="{% static 'css/test.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Album List</h1>
+    <ul class="album-list">
+        {% for album in albums %}
+        <li class="album-box">
+            <div class="album-info">
+                <a style="text-decoration: none" href="{% url 'album_detail' album.pk %}">{{ album.title }}</a>
+                by {{ album.artist }}
+                {% if album.is_favorite %}
+                <a style="text-decoration: none; color: red;" href="{% url 'unfavorite_album' album.pk %}" class="favorite-link">Unfavorite</a>
+                {% else %}
+                <a style="text-decoration: none; color: green;" href="{% url 'favorite_album' album.pk %}" class="favorite-link">Favorite</a>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+<a style="text-decoration: none" href="{% url 'album_new' %}" class="button">Create Album</a>
+
+</body>
+</html>
